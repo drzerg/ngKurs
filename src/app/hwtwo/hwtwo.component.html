@@ -1,0 +1,13 @@
+<div class="wrapper">
+    GiT поиск:
+    <input type="text" [(ngModel)]="findText"/>
+    <button (click)="find()">найти</button>
+    <div *ngIf="response">
+            <ng-container *ngFor="let item of response.items">
+                          
+        <pre>
+            {{item.full_name}}
+        </pre>
+            </ng-container>
+    </div>
+</div>

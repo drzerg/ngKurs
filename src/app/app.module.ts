@@ -15,13 +15,28 @@ import {
 import { WeatherComponent } from './weather/weather.component';
 import { SocioComponent } from './socio/socio.component';
 import { PhonePipe } from './phone.pipe';
+import { CardresortComponent } from './cardresort/cardresort.component';
+import { HwtwoComponent } from './hwtwo/hwtwo.component';
+import { Routes, RouterModule}  from '@angular/router';
+import { GithubServiceService } from './github-service.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
+const appRoutes: Routes =[
+  { path: '', component: AppComponent},
+  { path: 'hwone', component: CardresortComponent},
+  { path: 'hwtwo', component: HwtwoComponent},
+
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     WeatherComponent,
     SocioComponent,
-    PhonePipe
+    PhonePipe,
+    CardresortComponent,
+    HwtwoComponent
   ],
   imports: [
     BrowserModule,
@@ -32,10 +47,13 @@ import { PhonePipe } from './phone.pipe';
     MatIconModule,
     MatCardModule,
     MatGridListModule,
-    MatListModule
+    MatListModule,
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule,
+    FormsModule
 
   ],
-  providers: [],
+  providers: [GithubServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

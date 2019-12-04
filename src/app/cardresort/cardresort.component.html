@@ -1,0 +1,49 @@
+<div class="container">
+        <div class="dashboard">
+          <h1>Hot Weather Widget</h1>
+          <mat-grid-list cols="2" rowHeight="300px">
+              <mat-grid-tile rowspan=2 >
+                  <mat-card class="card">
+                     <div class="bigimg" [ngStyle]="{'background-image': 'url('+currentRes.img+')' }"></div>
+                      <!--img mat-card-image class="bigimg" style="width: 100%;" [src]="currentRes.img" -->
+                      <mat-card-actions>
+                          <ng-container *ngFor="let item of menu">
+                            <button mat-button [type]="item" (click)="getResortByType(item)" >{{item}}</button>
+                          </ng-container>
+                        </mat-card-actions>
+                      <mat-card-content>
+                        <h3 class="titleForList">Righteous indignation & like
+                          <div></div>
+                        </h3>
+                         <div class="scroll">
+                            <mat-list >
+                                <mat-list-item (click)="setCurrentRes(resort)" #currRes class="firstTile" *ngFor="let resort of res">
+      
+                                <h5 matLine><span class="label">Адрес:</span></h5>
+                                <div matLine>
+                                  {{resort.address}}
+                                </div>
+                                  <div matLine>
+                                  <span class="label">Тел:</span> {{resort.phone | phone}}
+                                </div>
+                                <img matListAvatar  class="smallimg" style="width: 100%;" [(src)]="resort.img" >
+                                <img matListAvatar  class="smallimg" style="width: 100%;" [(src)]="resort.social_info.img" >
+                                </mat-list-item>
+                            </mat-list>
+                         </div>
+                      </mat-card-content>
+                    
+                    </mat-card>
+              </mat-grid-tile>
+              <mat-grid-tile>
+                  <app-weather [water]="currentRes.weather.water" [temperature]="currentRes.weather.temperature" [title]="currentRes.weather.title" [icon]="currentRes.weather.icon"></app-weather>
+              </mat-grid-tile>
+              <mat-grid-tile>  
+                  <app-socio [following]="currentRes.social_info.following" [followers]="currentRes.social_info.followers" [title]="currentRes.social_info.title" [img]="currentRes.social_info.img"> </app-socio>
+              </mat-grid-tile>
+             
+            </mat-grid-list>
+      
+        </div>
+        <div class="footer">© 2015 Hot Weather Widget. All rights reserved | Design by W3layouts</div>
+      </div>
