@@ -1,0 +1,24 @@
+<mat-card class="socio_card">
+    <mat-card-content>
+   <h3>{{title}}</h3> 
+   <div class="line"></div>
+   <img src="{{img}}" class="circle"/>
+    </mat-card-content>
+    <mat-card-footer>	 
+            <mat-grid-list cols="2" rowHeight="20px">
+                <mat-grid-tile>followers 
+                   
+                </mat-grid-tile>
+                <mat-grid-tile>following
+                     
+                </mat-grid-tile>
+                <mat-grid-tile>
+                        <div>{{followers}}</div>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                        <div>{{following}}</div>
+                </mat-grid-tile>
+            </mat-grid-list>
+    </mat-card-footer>	
+
+</mat-card>

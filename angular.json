@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -89,6 +90,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -120,6 +122,125 @@
           }
         }
       }
-    }},
+    },
+    "hw-two": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/hw-two",
+      "sourceRoot": "projects/hw-two/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/hw-two",
+            "index": "projects/hw-two/src/index.html",
+            "main": "projects/hw-two/src/main.ts",
+            "polyfills": "projects/hw-two/src/polyfills.ts",
+            "tsConfig": "projects/hw-two/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "projects/hw-two/src/favicon.ico",
+              "projects/hw-two/src/assets"
+            ],
+            "styles": [
+              "projects/hw-two/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/hw-two/src/environments/environment.ts",
+                  "with": "projects/hw-two/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "hw-two:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "hw-two:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "hw-two:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/hw-two/src/test.ts",
+            "polyfills": "projects/hw-two/src/polyfills.ts",
+            "tsConfig": "projects/hw-two/tsconfig.spec.json",
+            "karmaConfig": "projects/hw-two/karma.conf.js",
+            "assets": [
+              "projects/hw-two/src/favicon.ico",
+              "projects/hw-two/src/assets"
+            ],
+            "styles": [
+              "projects/hw-two/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/hw-two/tsconfig.app.json",
+              "projects/hw-two/tsconfig.spec.json",
+              "projects/hw-two/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/hw-two/e2e/protractor.conf.js",
+            "devServerTarget": "hw-two:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "hw-two:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
   "defaultProject": "hw1"
 }

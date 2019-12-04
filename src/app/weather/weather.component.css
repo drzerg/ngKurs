@@ -1,0 +1,21 @@
+.weather_card{
+    background-color: #5fb3f9;
+    min-height: 140px;
+    min-width: 160px;
+    top:0px;
+    position: absolute;
+}
+.wi{
+    font-size: 45px;
+}
+.temperature{
+    font-size: 45px;
+}
+h3{
+    margin-bottom: 5px;
+}
+.line{
+    margin: 3px auto;
+    width: 50%;
+    border-bottom: 2px solid #ccc;
+}
